@@ -1,0 +1,24 @@
+{
+  "name": "macro-lens",
+  "version": "1.0.0",
+  "description": "Full Stack Web Application developed during CUNY Tech Prep",
+  "main": "index.js",
+  "scripts": {
+    "start": "node_modules/.bin/nodemon -L app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cyang/MacroLens.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cyang/MacroLens/issues"
+  },
+  "homepage": "https://github.com/cyang/MacroLens#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "nodemon": "^1.10.2"
+  }
+}
