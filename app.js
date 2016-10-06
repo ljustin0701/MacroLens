@@ -26,6 +26,8 @@ app.get('/:id', function(req, res) {
     res.send("This is the profile page for user id: " + req.params.id);
 });
 
+module.exports = app;
+
 app.listen(port, function(){
     console.log("App listening on http://localhost:" + port);
 });
