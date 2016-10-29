@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
 const exphbs = require('express-handlebars');
-var models = require('./models');
-var bodyParser = require('body-parser');
+const models = require('./models');
+const bodyParser = require('body-parser');
 const port = 5000;
 
 app.use(bodyParser.json());
@@ -13,40 +13,22 @@ app.engine('handlebars', exphbs({
 	defaultLayout: 'main'
 }));
 app.set('view engine', 'handlebars');
-app.set('views', '${__dirname}/views/');
+app.set('views', __dirname + '/views/');
 
 var dashboard = require('./controllers/dashboard');
 app.use('/dashboard', dashboard);
 
+var register = require('./controllers/register');
+app.use('/register', register);
+
 app.get('/', function(req, res) {
-    res.send("This is the index page");
+    res.render('index/index');
 });
 
 app.post('/sign-up', function(req, res) {
     // Handle sign-in
     // If success show dashboard
     // else return to index with an error message
-});
-
-app.get('/register', function(req, res) {
-	res.render('register/register');
-    // Handle register
-    // if success show profile
-    // else return to index with an error message
-});
-
-app.post('/register', function(req, res) {
-	console.log(req.body);
-	models.User.create({
-		first_name: req.body.first_name,
-		last_name: req.body.last_name,
-		username: req.body.username,
-		email: req.body.email
-	})
-});
-
-app.get('/:id', function(req, res) {
-    res.send("This is the profile page for user id: " + req.params.id);
 });
 
 module.exports = app;
