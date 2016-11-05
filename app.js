@@ -3,6 +3,10 @@ const app = express();
 const exphbs = require('express-handlebars');
 const models = require('./models');
 const bodyParser = require('body-parser');
+
+var dashboard = require('./controllers/dashboard');
+var register = require('./controllers/register');
+
 const port = 5000;
 
 app.use(bodyParser.json());
@@ -12,13 +16,12 @@ app.engine('handlebars', exphbs({
 	layoutsDir: './views/layouts',
 	defaultLayout: 'main'
 }));
+
 app.set('view engine', 'handlebars');
 app.set('views', __dirname + '/views/');
 
-var dashboard = require('./controllers/dashboard');
 app.use('/dashboard', dashboard);
 
-var register = require('./controllers/register');
 app.use('/register', register);
 
 app.get('/', function(req, res) {
