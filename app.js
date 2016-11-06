@@ -6,12 +6,15 @@ const bodyParser = require('body-parser');
 
 var dashboard = require('./controllers/dashboard');
 var register = require('./controllers/register');
+var signup = require('./controllers/signup');
 
 const port = 5000;
 
+// Bodyparser set up
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
 
+// Handlebars set up
 app.engine('handlebars', exphbs({
 	layoutsDir: './views/layouts',
 	defaultLayout: 'main'
@@ -20,18 +23,14 @@ app.engine('handlebars', exphbs({
 app.set('view engine', 'handlebars');
 app.set('views', __dirname + '/views/');
 
+// Controller uses
 app.use('/dashboard', dashboard);
-
 app.use('/register', register);
+app.use('/signup', signup);
 
+// Homepage route
 app.get('/', function(req, res) {
     res.render('index/index');
-});
-
-app.post('/sign-up', function(req, res) {
-    // Handle sign-in
-    // If success show dashboard
-    // else return to index with an error message
 });
 
 module.exports = app;
