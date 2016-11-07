@@ -15,7 +15,8 @@ router.post('/', function(req, res) {
 		first_name: req.body.first_name,
 		last_name: req.body.last_name,
 		username: req.body.username,
-		email: req.body.email
+		email: req.body.email,
+		password: req.body.password
 	}).then(function(users) {
 		res.redirect('register/list')
 	})

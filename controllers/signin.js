@@ -6,7 +6,7 @@ const router = express.Router();
 // If success show dashboard
 // else return to index
 router.get('/', function(req, res) {
-	res.send("Sign up page");
+	res.send("Sign in page");
 });
 
 module.exports = router;

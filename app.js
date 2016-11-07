@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 
 var dashboard = require('./controllers/dashboard');
 var register = require('./controllers/register');
-var signup = require('./controllers/signup');
+var signin = require('./controllers/signin');
 
 const port = 5000;
 
@@ -26,7 +26,7 @@ app.set('views', __dirname + '/views/');
 // Controller uses
 app.use('/dashboard', dashboard);
 app.use('/register', register);
-app.use('/signup', signup);
+app.use('/signin', signin);
 
 // Homepage route
 app.get('/', function(req, res) {
