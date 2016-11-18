@@ -8,7 +8,7 @@ const expressSession = require('express-session');
 //const viewHelpers = require('./middlewares/viewHelpers')
 const models = require('./models');
 
-var dashboard = require('./controllers/dashboard');
+var newsfeed = require('./controllers/newsfeed');
 var register = require('./controllers/register');
 var signin = require('./controllers/signin');
 
@@ -35,7 +35,7 @@ app.use(express.static('./public'));
 //app.use(viewHelpers.register());
 
 //Controller uses - Should probably change these three lines to the way edgardo did it on the CTP blog 
-app.use('/dashboard', dashboard);
+app.use('/newsfeed', newsfeed);
 app.use('/register', register);
 app.use('/signin', signin);
 
